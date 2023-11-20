@@ -27,6 +27,7 @@ const Navbar = () => {
                                 >
                                     Home
                                 </Link>
+                                
                                 <Link
                                     href="/college"
                                     className="text-black "
