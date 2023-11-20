@@ -25,9 +25,9 @@ const Navbar = () => {
                                     href="/"
                                     className="text-black"
                                 >
-                                    Home
+                                    Homeeeeee
                                 </Link>
-                                
+
                                 <Link
                                     href="/college"
                                     className="text-black "
