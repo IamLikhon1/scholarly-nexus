@@ -9,14 +9,16 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
     return (
-        <nav className="py-2 shadow">
+        <nav className="py-2 shadow w-full">
             <div className="">
-                <div className="flex items-center h-16 w-full">
-                    <div className="flex items-center justify-between w-full px-10">
+                <div className="flex items-center h-16 w-full pr-3 pl-10">
+                    <div className="flex items-center justify-between w-full">
                         {/* logo */}
                         <div className="flex items-center">
 
-                            <h1 className="text-black text-lg md:text-xl w-full">Collegiate<span className=" text-orange-600 uppercase">Nexus</span></h1>
+                            <Link href='/'>
+                            <h1 className="text-black text-lg md:text-xl w-full font-medium">Collegiate<span className=" text-orange-600 uppercase"> Nexus</span></h1>
+                            </Link>
                         </div>
 
                         <div className="hidden md:block">
@@ -93,8 +95,8 @@ const Navbar = () => {
             {/* small */}
 
             {isOpen && (
-                <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="md:hidden w-full">
+                    <div className="pl-2 pt-2 pb-3 space-y-1 sm:px-3">
                         <Link
                             href="/"
                             className="text-black hover:bg-orange-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium "
@@ -102,22 +104,22 @@ const Navbar = () => {
                             Home
                         </Link>
                         <Link
-                            href="#about"
+                            href="/college"
                             className="text-black hover:bg-orange-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                         >
-                            About
+                            College
                         </Link>
                         <Link
-                            href="#skills"
+                            href="/admission"
                             className="text-black hover:bg-orange-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                         >
-                            Skills
+                            Admission
                         </Link>
                         <Link
-                            href="#project"
+                            href="/myCollege"
                             className="text-black hover:bg-orange-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                         >
-                            Project
+                            My College
                         </Link>
                         <Link
                             href="#contact"
