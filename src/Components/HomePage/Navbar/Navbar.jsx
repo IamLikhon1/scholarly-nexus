@@ -11,15 +11,17 @@ const Navbar = () => {
     return (
         <nav className="py-2 shadow w-full">
             <div className="">
-                <div className="flex items-center h-16 w-full pr-3 pl-10">
-                    <div className="flex items-center justify-between w-full">
+                <div className="flex items-center h-16 w-full">
+                    <div className="flex items-center justify-around w-full">
                         {/* logo */}
                         <div className="flex items-center">
 
                             <Link href='/'>
-                            <h1 className="text-black text-lg md:text-xl w-full font-medium">Collegiate<span className=" text-orange-600 uppercase"> Nexus</span></h1>
+                                <h1 className="text-black text-lg md:text-xl w-full font-medium">Scholarly<span className=" text-orange-600 uppercase"> Nexus</span></h1>
                             </Link>
                         </div>
+
+                        {/* routes */}
 
                         <div className="hidden md:block">
                             <div className="space-x-8 ">
@@ -48,18 +50,23 @@ const Navbar = () => {
                                 >
                                     My College
                                 </Link>
-                                <Link
-                                    href="#contact"
-                                    className="text-black"
-                                >
-                                    Contact
-                                </Link>
+
 
                             </div>
 
                         </div>
+                        {/* login/register */}
+                        <div className="hidden md:block">
+                            <Link
+                                href="/login"
+                                className="px-5 py-3 bg-sky-300 text-white font-bold hover:rounded-md duration-300"
+                            >
+                                Login / Register
+                            </Link>
+                        </div>
+
                     </div>
-                    <div className="-mr-2 flex md:hidden">
+                    <div className="flex md:hidden">
                         <button
                             onClick={toggleNavbar}
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-orange-400 focus:outline-none focus:bg-orange-400 focus:text-white transition duration-500"
