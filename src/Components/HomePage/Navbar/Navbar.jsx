@@ -59,7 +59,7 @@ const Navbar = () => {
                         <div className="hidden md:block">
                             <Link
                                 href="/login"
-                                className="px-5 py-3 bg-sky-300 text-white font-bold hover:rounded-md duration-300"
+                                className="px-5 py-3 bg-sky-400 text-white font-bold hover:rounded-md duration-300"
                             >
                                 Login / Register
                             </Link>
