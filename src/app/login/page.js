@@ -7,7 +7,7 @@ const LoginPage = () => {
             <div className="grid md:grid-cols-12 md:mt-10 items-center">
 
                 {/* form */}
-                <div className="col-span-6 md:px-10 pt-10 pb-8 shadow md:mx-28 px-2">
+                <div className="col-span-6 md:px-10 pt-10 pb-8 shadow md:mx-28 px-2 mx-1">
                     {/* title */}
                     <div>
                         <h2
@@ -25,12 +25,12 @@ const LoginPage = () => {
                             <br />
 
                             {/* Password */}
-                            <label htmlFor="Password" className="font-medium">
+                            <label htmlFor="Password" className="font-medium flex justify-between">
                                 <span>Password </span>
-                                <span className="text-purple-500 underline text-sm cursor-pointer md:ml-64 ml-40">Forget Password? </span>
+                                <span className="text-purple-500 underline text-sm cursor-pointer md:ml-64 ">Forget Password? </span>
 
-                            </label> <br />
-                            <input type="password" name="password" className="mt-2 md:ml-1 w-full  px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Enter 6 Character and more " />
+                            </label>
+                            <input type="password" name="password" className=" mt-2 md:ml-1 w-full  px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Enter 6 Character and more " />
 
                             {/* button */}
                             <div>
@@ -42,7 +42,7 @@ const LoginPage = () => {
                         <div>
                             <p className="my-5 font-semibold text-center">OR Login With</p>
 
-                            <div className="flex items-center gap-10 justify-center">
+                            <div className="flex items-center gap-5 md:gap-10 justify-center">
 
                                 {/* google */}
                                 <div className="px-6 md:px-8 py-3 rounded border-2 border-red-500 flex items-center gap-3 cursor-pointer">

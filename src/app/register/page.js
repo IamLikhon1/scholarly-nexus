@@ -54,7 +54,7 @@ const RegisterPage = () => {
                             <label htmlFor="Image URL" className="font-medium">
                                 <span>Image URL </span>
                             </label> <br />
-                            <input type="text" name="pictures" className="mt-2 md:ml-1 w-full  px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Provide Img URL " />
+                            <input type="text" name="pictures" className="mt-2 md:ml-1 w-full  px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Provide Image URL " />
 
                             {/* button */}
                             <div>
@@ -66,7 +66,7 @@ const RegisterPage = () => {
                         <div>
                             <p className="my-5 font-semibold text-center">OR Register With</p>
 
-                            <div className="flex items-center gap-10 justify-center">
+                            <div className="flex items-center gap-5 md:gap-10  justify-center">
 
                                 {/* google */}
                                 <div className="px-6 md:px-8 py-3 rounded border-2 border-red-500 flex items-center gap-3 cursor-pointer">
