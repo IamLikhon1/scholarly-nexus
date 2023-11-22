@@ -136,7 +136,7 @@ const Navbar = () => {
                         </Link>
                         <Link
                                 href="/login"
-                                className=" px-3 py-2 flex justify-center bg-sky-400 text-white font-bold hover:rounded-md duration-300  md:mt-0"
+                                className=" mr-2 px-3 py-2 flex justify-center bg-sky-400 text-white font-bold hover:rounded-md duration-300  md:mt-0"
                             >
                                 Login / Register
                             </Link>

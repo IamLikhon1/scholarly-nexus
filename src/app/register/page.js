@@ -19,7 +19,7 @@ const RegisterPage = () => {
 
 
                 {/* form */}
-                <div className="col-span-6 md:px-10 pt-10 pb-8 shadow md:mx-28 px-2 mx-1">
+                <div className="col-span-6 md:px-10 pt-10 pb-8 shadow-xl  md:mx-28 px-2 mx-1 rounded-md md:mb-5">
                     {/* title */}
                     <div>
                         <h2
