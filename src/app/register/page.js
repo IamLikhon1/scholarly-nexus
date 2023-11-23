@@ -1,8 +1,52 @@
+'use client'
 import SocialSignIn from "@/Components/SocailSignIn/SocialSignIn";
+import { AuthContext } from "@/Components/Utilities/AuthProvider/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
+    const { createUsers, updateUserProfile } = useContext(AuthContext);
+    const search = useSearchParams();
+    const from = search.get("redirectUrl") || "/";
+    const { replace } = useRouter();
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = (data) => {
+        const email = data.email;
+        const password = data.password;
+        const name = data.name;
+        const photo = data.pictures
+        createUsers(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(name, photo)
+                    .then(() => {
+                        toast.success(`Welcome ${loggedUser?.displayName} You successfully create account`)
+                        replace(from);
+                    })
+                    .catch(error => {
+                        toast.error(error.message)
+                    })
+
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error(error.message)
+            })
+        console.log(name, email, password, photo)
+
+    }
+
     return (
         <div className="container mx-auto" >
             <div className="grid md:grid-cols-12 md:mt-10 items-center">
@@ -14,6 +58,7 @@ const RegisterPage = () => {
                         width="700"
                         height="700"
                         alt="login Img"
+                        priority={true}
                     ></Image>
                 </div>
                 {/* img */}
@@ -30,17 +75,17 @@ const RegisterPage = () => {
                     {/* input */}
                     <div className="mt-5 md:mt-8">
 
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             {/* name */}
                             <label htmlFor="Name" className="font-medium">Name</label> <br />
-                            <input type="text" name="name" className="mt-2 md:ml-1 mb-3 w-full px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Enter Name" />
+                            <input {...register("name", { required: true })} type="text" name="name" className="mt-2 md:ml-1 mb-3 w-full px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Enter Name" />
 
                             <br />
 
 
                             {/* Email */}
                             <label htmlFor="Email Address" className="font-medium">Email Address</label> <br />
-                            <input type="text" name="email" className="mt-2 md:ml-1 mb-3 w-full px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="your@example.com" />
+                            <input {...register("email", { required: true })} type="text" name="email" className="mt-2 md:ml-1 mb-3 w-full px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="your@example.com" />
 
                             <br />
 
@@ -48,14 +93,14 @@ const RegisterPage = () => {
                             <label htmlFor="Password" className="font-medium">
                                 <span>Password </span>
                             </label> <br />
-                            <input type="password" name="password" className="mt-2 md:ml-1 w-full  px-5 py-3 mb-3 rounded-md border-2 focus:outline-none" placeholder="Enter 6 Character and more " />
+                            <input {...register("password", { required: true })} type="password" name="password" className="mt-2 md:ml-1 w-full  px-5 py-3 mb-3 rounded-md border-2 focus:outline-none" placeholder="Enter 6 Character and more " />
 
                             {/* Image */}
 
                             <label htmlFor="Image URL" className="font-medium">
                                 <span>Image URL </span>
                             </label> <br />
-                            <input type="text" name="pictures" className="mt-2 md:ml-1 w-full  px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Provide Image URL " />
+                            <input {...register("pictures", { required: true })} type="text" name="pictures" className="mt-2 md:ml-1 w-full  px-5 py-3 rounded-md border-2 focus:outline-none" placeholder="Provide Image URL " />
 
                             {/* button */}
                             <div>
@@ -67,8 +112,8 @@ const RegisterPage = () => {
                         <div>
                             <p className="my-5 font-semibold text-center">OR Register With</p>
 
-                            <SocialSignIn/>
-                            </div>
+                            <SocialSignIn />
+                        </div>
                     </div>
                 </div>
                 {/* form */}
