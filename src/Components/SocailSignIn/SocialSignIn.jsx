@@ -14,9 +14,7 @@ const SocialSignIn = () => {
             toast.success(`Welcome ${googleSign?.displayName} successfully Continue with Google`)
 
         })
-        .catch(error=>{
-            toast.error(error.massage)
-        })
+        .catch((err) => toast.error(err.message));
     }
     return (
         <div>
